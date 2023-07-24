@@ -10,3 +10,19 @@ class Solution {
         return nums;
     }
 }
+
+// 2nd approach
+class Solution {
+    public int[] buildArray(int[] nums) {
+        int CONST = 1001; // Taking a value higher than the limit used by array length
+        for(int i=0;i<nums.length;i++){
+            int a = nums[i];
+            int b = nums[a]%CONST;
+            nums[i] = a + b*CONST;
+        }
+        for(int i=0;i<nums.length;i++){
+            nums[i]=nums[i]/CONST;
+        }
+        return nums;
+    }
+}
