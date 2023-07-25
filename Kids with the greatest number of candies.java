@@ -1,14 +1,14 @@
 //1st approach(BEST) TC - O(n), SC - O(n)
 class Solution {
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
-        List<Boolean> result=new ArrayList<>();
-        int max=-1;
+        List<Boolean> result = new ArrayList<>(candies.length);
+        int gauge = Integer.MIN_VALUE;
         for(int candy : candies){
-            if(candy>max)
-                max=candy;
+            gauge=Math.max(gauge,candy);
         }
+        gauge-=extraCandies;
         for(int candy : candies){
-            result.add(candy+extraCandies >= max);
+            result.add(candy>= gauge);
         }
         return result;
     }
